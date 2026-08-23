@@ -1,0 +1,57 @@
+generated: '2026-08-23'
+method: searched
+source: https://www.janio.asia/integrations
+docs:
+- https://www.janio.asia/integrations
+- https://www.janio.asia/pricing
+- https://www.janio.asia/faq
+note: >-
+  Janio publishes an availability target but no operational lifecycle surface. No
+  status page, no changelog, no release notes, no versioning scheme and no
+  deprecation or sunset policy could be found on any Janio host. Because none of
+  those exist, this file deliberately carries NO StatusPage and NO Deprecation
+  pointer in apis.yml — the Lifecycle pointer records what was measured, and what
+  was measured is mostly absence.
+versioning:
+  scheme: unknown
+  documented: false
+  evidence: 'No version identifier appears in any public Janio material. The live
+    API is served under a bare /api/order/ prefix with no /v1/ segment
+    (https://api.janio.asia/api/v1/ returns 404 while
+    https://api.janio.asia/api/order/orders/ returns 403), so versioning — if any —
+    is not expressed in the path.'
+deprecation_policy:
+  published: false
+  sunset_header: unknown
+  rfc8594: false
+  evidence: 'No deprecation, sunset or breaking-change policy is published.'
+status_page:
+  published: false
+  url: null
+  probed:
+  - url: https://status.janio.asia/
+    status: 0
+    finding: does not resolve
+  evidence: 'No status.janio.asia, no Statuspage/Instatus/Better Stack tenant, and
+    no status link in the site footer or the support portal.'
+sla:
+  published: true
+  availability_target: 99.9%
+  scope: 'Stated on the Integrations & API page as a platform commitment
+    ("99.9% uptime SLA") alongside dedicated integration support and a sandbox
+    testing environment. Contractual SLAs are described as tier-dependent: the
+    Enterprise Partnership plan advertises "Custom SLA agreements" and the whole
+    4PL proposition is framed as "one contract, one invoice, one SLA".'
+  source: https://www.janio.asia/integrations
+  note: 'This is a marketing-page availability claim, not a published SLA document.
+    No credits schedule, measurement window or exclusions are published.'
+changelog:
+  published: false
+  evidence: 'No /changelog, /releases or release-notes page exists on www.janio.asia
+    (absent from the published sitemap.xml, which enumerates 60+ URLs), and the
+    support portal carries help articles rather than dated API release notes.'
+support:
+  channel: https://support.janio.asia/en/support/home
+  email: contact@janio.asia
+  sales_email: sales@janio.asia
+deprecated_operations: []

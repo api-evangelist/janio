@@ -1,0 +1,98 @@
+generated: '2026-08-23'
+method: searched
+source: 'Registry searches (npm, PyPI, RubyGems, Packagist, crates.io, NuGet, Maven
+  Central, pkg.go.dev, wordpress.org, Shopify App Store, GitHub) plus
+  https://www.janio.asia/integrations, 2026-08-23'
+package_count: 2
+sdk_count: 0
+note: >-
+  Janio's own Integrations page states "We provide SDKs for popular languages", but
+  no first-party Janio client library exists in ANY public package registry. Every
+  registry below was queried directly and every one missed. What Janio does ship
+  publicly are two platform connectors — a Shopify app and a WooCommerce plugin —
+  which are merchant installables, not developer SDKs. Because sdk_count is 0, NO
+  `SDKs` pointer is emitted in apis.yml; emitting one would credit Janio for client
+  libraries a developer cannot obtain. The WooCommerce plugin is the strongest
+  decay signal available on this provider: version 1.0.0, last published
+  2023-03-24, tested only to WordPress 6.2 — roughly three and a half years stale
+  against a live API, with 0 recorded active installs.
+registries_searched:
+- registry: npm
+  query: janio, janio-api, janio-sdk, @janio/sdk, janio-asia
+  result: 'no first-party package. The name `janio` on npm is an unrelated Express
+    scaffolding generator published by mathieujanio@gmail.com — a personal package,
+    not Janio Asia. Explicitly NOT recorded as Janio''s.'
+- registry: pypi
+  query: janio, janio-api, janio-sdk
+  result: none (404)
+- registry: rubygems
+  query: janio
+  result: none
+- registry: packagist
+  query: janio
+  result: none
+- registry: crates.io
+  query: janio
+  result: none
+- registry: nuget
+  query: janio
+  result: none
+- registry: maven-central
+  query: janio
+  result: none
+- registry: pkg.go.dev
+  query: janio
+  result: none
+- registry: github
+  query: 'orgs janioasia (created 2018-03-28, blog https://www.janio.asia) and
+    Janio-Asia (created 2026-06-29)'
+  result: 'both organizations exist and are verifiably Janio''s, but BOTH have
+    public_repos = 0. No source code, no SDK, no examples. No GitHubOrganization
+    pointer is emitted for an empty org.'
+packages:
+- name: Janio Asia
+  language: n/a
+  kind: platform-connector
+  platform: Shopify
+  registry: shopify-app-store
+  url: https://apps.shopify.com/janio-asia
+  official: true
+  official_basis: 'Shopify App Store lists the developer as "Janio Asia".'
+  version: null
+  published: null
+  currency_note: 'The Shopify App Store publishes no version number or release date
+    on the public listing and exposes no unauthenticated metadata endpoint, so
+    currency could not be read. Checked, nothing to record — not a guess.'
+  pricing: Free to install
+  rating: 5.0 (4 reviews)
+  description: 'Janio Shipping & Delivery — order sync, label creation and customer
+    delivery tracking for Shopify merchants shipping to and through Southeast Asia.'
+- name: Janio Store Connector
+  language: php
+  kind: platform-connector
+  platform: WooCommerce / WordPress
+  registry: wordpress.org
+  url: https://wordpress.org/plugins/janio-store-connector/
+  official: true
+  official_basis: 'Published by the wordpress.org account `janiointegration`
+    (https://profiles.wordpress.org/janiointegration/).'
+  version: 1.0.0
+  published: '2023-03-24'
+  added: '2023-03-16'
+  requires_wordpress: '4.7'
+  tested_up_to: '6.2.11'
+  requires_php: '7.0'
+  active_installs: 0
+  download_link: https://downloads.wordpress.org/plugin/janio-store-connector.1.0.0.zip
+  currency_note: 'Read from the wordpress.org plugin_information API on 2026-08-23.
+    Still at its first release, 1.0.0, more than three years after publication, and
+    tested only against WordPress 6.2 — a first-party integration whose last release
+    predates the API surface Janio currently markets.'
+claimed_but_not_found:
+- claim: 'We provide SDKs for popular languages.'
+  source: https://www.janio.asia/integrations
+  finding: 'No SDK found in any registry listed above.'
+- claim: 'Magento — enterprise-grade integration for complex catalog management.'
+  source: https://www.janio.asia/integrations
+  finding: 'No Janio extension found on the Adobe Commerce Marketplace or in
+    Packagist; the connector is described on the site but not publicly distributed.'

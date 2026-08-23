@@ -1,23 +1,124 @@
 aid: janio
 name: Janio
-description: 'Janio is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Janio is a Singapore-headquartered fourth-party logistics (4PL) provider
+  serving Southeast Asia and Greater China. Rather than owning trucks or warehouses,
+  Janio orchestrates a network of 500+ vetted carriers and 3PLs on a customer''s behalf
+  under one contract, one invoice and one SLA, across land, air and ocean freight plus
+  warehousing. Its platform covers multi-carrier allocation, logistics-as-a-service,
+  strategic procurement, a supply-chain control tower and automated freight invoice
+  audit. Janio publishes a production REST API at api.janio.asia for order creation,
+  tracking, rating, label generation, inventory sync and webhook events, together with
+  pre-built Shopify, WooCommerce and Magento connectors — but the API reference itself
+  is released only on request through the sales contact form, so no machine-readable
+  contract is publicly available.'
+image: https://www.janio.asia/brand/janio-icon.png
 url: https://raw.githubusercontent.com/api-evangelist/janio/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-23'
 modified: '2026-08-23'
 tags:
+- Logistics
+- Supply Chain
+- Shipping
+- Fourth-Party Logistics
+- Cross-Border Ecommerce
+- Freight
+- Tracking
+- Southeast Asia
+- Singapore
 - Company
-apis: []
+apis:
+- name: Janio Logistics API
+  description: 'Janio''s production REST API for cross-border logistics: order creation
+    and batch order management, unified multi-carrier tracking, rate and transit-time
+    quotes, shipping label and customs document generation, inventory synchronisation,
+    and webhook events for shipment status, delivery and exception alerts. The host is
+    live and answers under /api/order/ with an authenticated Django REST Framework
+    surface; the reference documentation is issued on request rather than published.'
+  humanURL: https://www.janio.asia/integrations
+  baseURL: https://api.janio.asia
+  tags:
+  - Logistics
+  - Shipping
+  - Tracking
+  - Orders
+  properties:
+  - type: LLMsTxt
+    url: llms/janio-llms.txt
+  - type: Conventions
+    url: conventions/janio-conventions.yml
+  - type: RateLimits
+    url: rate-limits/janio-rate-limits.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/janio-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.janio.asia/
+- type: LLMsTxt
+  url: llms/janio-llms.txt
+- type: Support
+  url: https://support.janio.asia/en/support/home
+- type: Blog
+  url: https://www.janio.asia/resources/articles
+- type: Pricing
+  url: https://www.janio.asia/pricing
+- type: Login
+  url: https://app.janio.asia/
+- type: TermsOfService
+  url: https://www.janio.asia/terms
+- type: PrivacyPolicy
+  url: https://www.janio.asia/privacy
+- type: Contact
+  url: https://www.janio.asia/contact
+- type: FAQ
+  url: https://www.janio.asia/faq
+- type: About
+  url: https://www.janio.asia/about
+- type: CaseStudies
+  url: https://www.janio.asia/case-studies
+- type: Careers
+  url: https://www.janio.asia/careers
+- type: Plans
+  url: plans/janio-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/janio-rate-limits.yml
+- type: Conformance
+  url: conformance/janio-conformance.yml
+- type: Compliance
+  url: conformance/janio-conformance.yml
+- type: Lifecycle
+  url: lifecycle/janio-lifecycle.yml
+- type: Conventions
+  url: conventions/janio-conventions.yml
+- type: Packages
+  url: packages/janio-packages.yml
+x-enrichment:
+  date: '2026-08-23'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: 'Janio runs a live production REST API — https://api.janio.asia/api/order/orders/
+    answers 403 {"detail":"Permission denied."} — but ships no machine-readable contract
+    at any probed location, and the Integrations page''s only route to the reference is a
+    "Request API Documentation" button that leads to the /contact sales form, above Janio''s
+    own line "API documentation is available upon request".'
+  evidence:
+  - url: https://api.janio.asia/api/order/orders/
+    status: 403
+  - url: https://api.janio.asia/openapi.json
+    status: 404
+  - url: https://www.janio.asia/integrations
+    status: 200
+  - url: https://www.janio.asia/llms.txt
+    status: 200
+  checked: '2026-08-23'

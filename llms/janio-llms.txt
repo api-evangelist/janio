@@ -1,0 +1,44 @@
+# Janio
+
+> Janio is Southeast Asia's premier Fourth-Party Logistics (4PL) provider. We orchestrate 500+ vetted carriers from one platform under a single SLA, so businesses can cut cross-border logistics cost by 20-50% (total cost of ownership) without managing a different courier in every country.
+
+## What Janio is
+- A **4PL** (Fourth-Party Logistics) provider — not a 3PL. Janio does not own trucks or warehouses; it orchestrates a network of carriers and 3PLs on the client's behalf and stays accountable for the outcome under one contract, one invoice, and one SLA.
+- Headquartered in Singapore (30 Prinsep St, #06-01, Singapore 188647), operating across Southeast Asia and Greater China.
+- Serves ecommerce brands, marketplaces, and logistics service providers.
+
+## Key facts (canonical figures)
+- Network: 500+ vetted carriers / 3PLs.
+- Customers: 1,000+ companies.
+- Coverage: 15+ countries.
+- Volume: 100K+ shipments per day.
+- Typical savings: 20-50% of total cost of ownership (TCO). Component ranges: Logistics-as-a-Service 25-40% TCO; strategic procurement 12-20% TCO; invoice audit recovers 8-12% of freight spend; marketplace cross-border freight ~15% (part of the 20-50% TCO).
+- Compliance: PDPA compliant; GDPR compliant; SOC 2 Type II and ISO 27001 — compliant with the controls, independent certification audits in progress.
+
+## Services
+- [Services overview](https://www.janio.asia/services): the full 4PL service portfolio.
+- [Multi-Carrier Platform](https://www.janio.asia/services/mcpms): unified logistics command center with real-time visibility and automated workflows.
+- [Logistics as a Service (LaaS)](https://www.janio.asia/services/laas): outsource your entire logistics department to Janio's 4PL experts.
+- [Strategic Procurement](https://www.janio.asia/services/procurement): managed RFQ/RFP and carrier rate optimization.
+- [Supply Chain Control Tower](https://www.janio.asia/services/control-tower): real-time visibility, predictive analytics, and exception management.
+- [Automated Invoice Audit](https://www.janio.asia/services/invoice-audit): validates carrier invoices against contracted rates to recover overcharges.
+
+## Solutions (by business type)
+- [Ecommerce brands](https://www.janio.asia/solutions/ecommerce)
+- [Marketplaces](https://www.janio.asia/solutions/marketplaces)
+- [Logistics service providers (white-label 4PL)](https://www.janio.asia/solutions/logistics-providers)
+
+## Lanes
+- [Singapore to the US](https://www.janio.asia/lanes/singapore-to-us)
+- [Indonesia across ASEAN](https://www.janio.asia/lanes/indonesia-to-asean)
+- [Cross-border fulfilment for marketplace sellers](https://www.janio.asia/lanes/marketplace-sellers)
+
+## Company & resources
+- [About Janio](https://www.janio.asia/about)
+- [Pricing & engagement models](https://www.janio.asia/pricing)
+- [Integrations & API](https://www.janio.asia/integrations)
+- [Case studies](https://www.janio.asia/case-studies)
+- [FAQ](https://www.janio.asia/faq)
+- [Articles & shipping guides](https://www.janio.asia/resources/articles)
+- [Country insights](https://www.janio.asia/resources/country-insights)
+- [Contact / free landed-cost benchmark](https://www.janio.asia/contact)

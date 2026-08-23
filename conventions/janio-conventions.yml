@@ -1,0 +1,159 @@
+generated: '2026-08-23'
+method: probed
+source: 'Anonymous HTTPS probes of https://api.janio.asia (2026-08-23) plus
+  https://www.janio.asia/integrations'
+docs: https://www.janio.asia/integrations
+note: >-
+  Janio publishes no API reference, so almost every cross-cutting convention below
+  is UNDOCUMENTED rather than absent — the difference matters. What could be
+  established was established by probing the live production host anonymously: the
+  API is real, it answers under /api/order/, and it is a Django REST Framework
+  application. Everything marked `documented: false` is a gap in what Janio
+  publishes, not a claim that the behaviour does not exist. Nothing here is
+  inferred from a spec, because there is no spec.
+surface:
+  base_url: https://api.janio.asia
+  style: REST/JSON
+  framework_fingerprint: Django REST Framework
+  evidence:
+  - url: https://api.janio.asia/api/order/orders/
+    status: 403
+    body: '{"detail":"Permission denied."}'
+  - url: https://api.janio.asia/api/order/order/create/
+    status: 403
+    body: '{"detail":"Permission denied."}'
+  - url: https://api.janio.asia/api/v1/
+    status: 404
+    body: '<h1>Not Found</h1>'
+  documented_capabilities:
+  - Order management (create, update, track; batch processing for high volume)
+  - Webhooks and events (shipment status, delivery updates, exception alerts)
+  - Rate & quote (real-time shipping rates and transit times per carrier/route)
+  - Tracking (unified across carriers, "standardized status codes and timestamps")
+  - Inventory sync (across warehouses and sales channels)
+  - Label generation (shipping labels, customs documents, commercial invoices)
+  capabilities_source: https://www.janio.asia/integrations
+auth:
+  style: credential-required
+  documented: false
+  scheme: unknown
+  evidence: 'Anonymous requests are rejected with HTTP 403 and the DRF
+    {"detail":"Permission denied."} envelope rather than 401 with a
+    WWW-Authenticate challenge, so the credential type cannot be read off the wire.
+    No OAuth metadata is served (/.well-known/oauth-authorization-server 404s) and
+    no auth page is published. Third-party carrier-integration vendors describe
+    Janio as API-key based, but that is their statement, not Janio''s, and is not
+    recorded here as fact.'
+error_envelope:
+  format: application/json
+  shape: '{"detail": "<message>"}'
+  rfc9457: false
+  documented: false
+  observed_status_codes:
+  - 403
+  - 404
+  note: 'The 403 envelope was observed directly. Non-auth error shapes could not be
+    observed because every path requires credentials before it reaches application
+    logic. Unmatched paths return an HTML "Not Found" body rather than JSON, so the
+    error format is not uniform across the host.'
+idempotency:
+  supported: unknown
+  documented: false
+  header: null
+  note: 'No idempotency key, retry-safety or replay-protection guidance is published,
+    and the write surface (order create, batch order upload) is exactly where it
+    would matter. No Idempotency pointer is emitted in apis.yml — emitting one would
+    assert a guarantee Janio does not make.'
+pagination:
+  style: unknown
+  documented: false
+  note: 'Django REST Framework list endpoints commonly paginate, and
+    /api/order/orders/ is a list route, but the anonymous 403 prevents observing
+    any envelope, and no docs state the scheme. Not asserted.'
+versioning:
+  in_path: false
+  header: unknown
+  documented: false
+  note: 'See lifecycle/janio-lifecycle.yml. /api/v1/ 404s; the live prefix is
+    /api/order/.'
+rate_limit_signaling:
+  documented: false
+  headers_observed: []
+  note: 'See rate-limits/janio-rate-limits.yml — limit_count 0.'
+request_id_tracing:
+  documented: false
+  header: null
+field_expansion:
+  supported: unknown
+  documented: false
+metadata_fields:
+  supported: unknown
+  documented: false
+webhooks:
+  advertised: true
+  documented: false
+  events_claimed:
+  - shipment status
+  - delivery updates
+  - exception alerts
+  source: https://www.janio.asia/integrations
+  note: 'Webhooks are advertised in prose on the Integrations page but no event
+    catalog, payload schema, signing scheme, retry policy or endpoint-registration
+    procedure is published. No Webhooks or AsyncAPI pointer is emitted, because an
+    advertised capability with no published event surface is a claim, not a
+    contract. If Janio publishes the event list, this becomes an asyncapi/ artifact.'
+sandbox:
+  advertised: true
+  documented: false
+  source: https://www.janio.asia/integrations
+  note: '"Sandbox testing environment" is listed as an integration benefit, but no
+    sandbox host, test credential, test tracking number, magic identifier or fixture
+    is published. No Sandbox pointer is emitted for the same reason as webhooks.'
+reversibility:
+  grade: undocumented
+  applicable: true
+  rationale: >-
+    The API has a real write surface — Janio's own Integrations page states the API
+    can "Create, update, and track orders programmatically", generate shipping
+    labels, customs documents and commercial invoices, and synchronise inventory —
+    so reversibility is applicable, not `na`. But Janio publishes no reversal
+    operation and no reversal window anywhere a reader can reach: no cancel-order
+    call, no void-label call, no return/RTO initiation, no stated cut-off such as
+    "cancel before pickup" or "void a label within N hours". The FAQ, pricing and
+    integrations pages are silent on cancellation entirely. An agent acting through
+    this API cannot learn, before it acts, whether an order it creates or a label it
+    generates can be taken back. NOTHING is asserted here about what the API
+    actually supports internally — only about what a consumer can find out in
+    advance, which is nothing.
+  write_surfaces:
+  - surface: Order creation
+    reversal_operation: null
+    reversal_window: null
+    docs: null
+    evidence: 'https://www.janio.asia/integrations describes create/update/track and
+      batch order processing; no cancellation is mentioned. Live route
+      https://api.janio.asia/api/order/order/create/ returns 403 anonymously.'
+  - surface: Label / customs document generation
+    reversal_operation: null
+    reversal_window: null
+    docs: null
+    evidence: 'https://www.janio.asia/integrations lists label, customs document and
+      commercial invoice generation; no void or cancel path is published.'
+  - surface: Inventory synchronisation
+    reversal_operation: null
+    reversal_window: null
+    docs: null
+    evidence: 'Described as keeping levels synchronised across warehouses and sales
+      channels; no rollback or restore semantics published.'
+dry_run_mode:
+  supported: unknown
+  documented: false
+  note: 'The Rate & Quote capability is a read-only price/transit estimate and is the
+    closest thing to a rehearsal of a shipment, but Janio does not present it as a
+    dry run of order creation and publishes no dry-run flag.'
+cross_links:
+  rate_limits: rate-limits/janio-rate-limits.yml
+  lifecycle: lifecycle/janio-lifecycle.yml
+  conformance: conformance/janio-conformance.yml
+  plans: plans/janio-plans-pricing.yml
+  packages: packages/janio-packages.yml

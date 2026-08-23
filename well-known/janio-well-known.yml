@@ -1,0 +1,96 @@
+generated: '2026-08-23'
+method: probed
+source: 'Anonymous HTTPS probe of /.well-known/* on every Janio host named in apis.yml (2026-08-23).'
+note: >-
+  No /.well-known document is served by Janio. www.janio.asia returns its Next.js
+  404 page (HTTP 404, text/html) for every path. api.janio.asia returns a bare
+  "Not Found" 404. app.janio.asia sits behind an S3/CloudFront origin that answers
+  403 AccessDenied for most paths and 200 with the customer-portal SPA HTML shell
+  for a handful (openid-configuration, oauth-authorization-server,
+  oauth-protected-resource, api-catalog) — those 200s are the single-page-app
+  catch-all, NOT documents, and are recorded as misses. No WellKnown or SecurityTxt
+  pointer is emitted, because this file records an absence.
+hosts:
+- host: www.janio.asia
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: api.janio.asia
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: app.janio.asia
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    file: null
+    note: S3 AccessDenied XML, not a document.
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: HTML SPA shell (1516 bytes, text/html) — catch-all, not an OIDC document.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    note: HTML SPA shell — catch-all, not an authorization-server metadata document.
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: null
+    note: HTML SPA shell — catch-all, not a protected-resource metadata document.
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    note: HTML SPA shell — catch-all, not an RFC 9727 api-catalog.
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 403
+    file: null
+  - path: /.well-known/agent.json
+    status: 403
+    file: null

@@ -64,5 +64,73 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Janio is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Janio is a Singapore-headquartered **fourth-party logistics (4PL)** provider serving Southeast Asia
+and Greater China. It does not own trucks or warehouses — it orchestrates a network of 500+ vetted
+carriers and 3PLs on a customer's behalf under one contract, one invoice and one SLA, across land,
+air and ocean freight plus warehousing.
+
+- Website: https://www.janio.asia/
+- Integrations & API: https://www.janio.asia/integrations
+- Support: https://support.janio.asia/en/support/home
+- Customer portal (login): https://app.janio.asia/
+
+## What this profile found (2026-08-23)
+
+**The API is real and live, but its contract is not published.**
+
+- `https://api.janio.asia` is a production Django REST Framework host. Anonymous probes returned
+  `403 {"detail":"Permission denied."}` on `/api/order/orders/` and `/api/order/order/create/`, and a
+  plain `404` elsewhere — a live, credential-gated API, not a parked host.
+- No machine-readable contract exists at any probed location. `/openapi.json`, `/openapi.yaml`,
+  `/swagger.json`, `/v1/openapi.json`, `/api-docs`, `/docs`, `/redoc`, `/api/schema`, `/graphql`,
+  `?wsdl` and the DRF schema paths all 404 on the API host; the docs host, the portal host and the
+  marketing host miss the same way. No AsyncAPI, no GraphQL SDL, no `.proto`, no WSDL.
+- The route to the reference is a sales form. The Integrations page's only call to action is
+  **"Request API Documentation"**, which leads to `/contact`. Janio's own copy says
+  *"API documentation is available upon request."*
+- No MCP server, no A2A agent card, no `/.well-known` document on any host.
+- **Janio does publish a real `llms.txt`** at https://www.janio.asia/llms.txt — saved verbatim to
+  `llms/janio-llms.txt`. It is a well-formed, genuinely useful document, and it is currently the
+  single best machine-readable thing Janio ships.
+
+**Notable gaps between what the site claims and what is publicly obtainable:**
+
+| Claimed on janio.asia | Publicly obtainable |
+|---|---|
+| "We provide SDKs for popular languages" | No first-party SDK in npm, PyPI, RubyGems, Packagist, crates.io, NuGet, Maven Central or pkg.go.dev |
+| "Sandbox testing environment" | No sandbox host, test credential or test identifier published |
+| Webhooks for status/delivery/exception events | No event catalog, payload schema, signing scheme or retry policy published |
+| "99.9% uptime SLA" | No status page (`status.janio.asia` does not resolve), no SLA document |
+| SOC 2 Type II and ISO 27001 | Janio itself states audits are *in progress*, not complete |
+
+Two first-party platform connectors do exist and are recorded in `packages/`: the
+[Shopify app](https://apps.shopify.com/janio-asia) and the
+[WooCommerce plugin](https://wordpress.org/plugins/janio-store-connector/) — the latter still at
+`1.0.0`, last published **2023-03-24**, tested only to WordPress 6.2. Both Janio GitHub
+organizations (`janioasia`, `Janio-Asia`) exist and are empty (0 public repos).
+
+## Artifacts in this repository
+
+| Path | Type | Method |
+|---|---|---|
+| `llms/janio-llms.txt` | LLMsTxt | searched (verbatim) |
+| `plans/janio-plans-pricing.yml` | Plans | searched |
+| `rate-limits/janio-rate-limits.yml` | RateLimits | searched (`limit_count: 0`) |
+| `conformance/janio-conformance.yml` | Conformance + Compliance | searched |
+| `lifecycle/janio-lifecycle.yml` | Lifecycle | searched |
+| `conventions/janio-conventions.yml` | Conventions | probed |
+| `packages/janio-packages.yml` | Packages | searched |
+| `security/janio-domain-security.yml` | DomainSecurity | probed |
+| `well-known/janio-well-known.yml` | (absence record — no pointer) | probed |
+
+No `Idempotency`, `SDKs`, `Sandbox`, `Webhooks`, `StatusPage`, `Deprecation`, `Security`,
+`MCPServer`, `AgentCard`, `AgentSkill` or `WellKnown` pointer is emitted, because in every one of
+those cases the probe recorded an absence. The artifacts document the absence; the pointers would
+have asserted a presence.
+
+## For Janio
+
+Publishing the OpenAPI you already hand out on request — at a stable URL, alongside the webhook
+event catalog and the sandbox details you already advertise — would move nearly every measurement
+above at once, and would make the API reachable by the agents your customers are starting to build.
+Open an issue here or email info@apievangelist.com and we will re-score.

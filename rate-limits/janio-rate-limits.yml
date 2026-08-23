@@ -1,0 +1,24 @@
+generated: '2026-08-23'
+method: searched
+source: https://www.janio.asia/integrations
+limit_count: 0
+headers_documented: false
+rate_limits: []
+note: >-
+  Janio publishes no rate limits. The Integrations & API page describes order
+  management, webhooks, rate/quote, tracking, inventory sync and label generation
+  and claims the API "scales with you" and supports "batch processing for
+  high-volume operations", but names no quota, window, burst, response header
+  (X-RateLimit-*, RateLimit-*, Retry-After) or exhaustion status code. The
+  reference that would carry them is issued only on request via the sales form,
+  so no limit could be read. Nothing observed on the live host either: anonymous
+  requests to https://api.janio.asia/api/order/orders/ are rejected with
+  403 {"detail":"Permission denied."} before any rate-limit header is emitted.
+  An honest zero, not an omission.
+evidence:
+- url: https://www.janio.asia/integrations
+  status: 200
+  finding: 'API capabilities described in prose; no limits, quotas or headers stated.'
+- url: https://api.janio.asia/api/order/orders/
+  status: 403
+  finding: 'DRF permission-denied envelope; no RateLimit-* or Retry-After headers present.'

@@ -1,0 +1,81 @@
+generated: '2026-08-23'
+method: searched
+source: https://www.janio.asia/pricing
+docs: https://www.janio.asia/pricing
+currency: USD
+plan_count: 4
+note: >-
+  Janio publishes four named engagement models with entry prices, but every tier
+  ends in a "Get Custom Quote" call to action — there is no self-serve checkout,
+  no published rate card per lane, and no published per-API-call pricing. Final
+  price is quoted from shipment volume, destination corridor, service level and
+  add-on services. Figures below are transcribed verbatim from the pricing page.
+plans:
+- name: Platform Access
+  price: '0.50'
+  price_display: From $0.50/shipment
+  currency: USD
+  billing_period: per-shipment
+  self_serve: true
+  description: Self-serve access to the multi-carrier platform with competitive rates
+    and real-time visibility.
+  ideal_for: Growing ecommerce brands shipping 500+ orders/month
+  included:
+  - Access to 500+ vetted carriers
+  - Real-time rate comparison
+  - Unified tracking dashboard
+  - Basic analytics & reporting
+- name: Managed Services
+  price: '2500'
+  price_display: From $2,500/month + usage
+  currency: USD
+  billing_period: monthly
+  self_serve: false
+  description: Full logistics outsourcing with dedicated account management and strategic
+    optimization.
+  ideal_for: Brands seeking complete logistics outsourcing
+  included:
+  - Everything in Platform Access
+  - Dedicated account manager
+  - Strategic carrier selection
+  - Invoice auditing included
+  - Quarterly business reviews
+- name: Enterprise Partnership
+  price: null
+  price_display: Custom pricing (typically $10K+/month)
+  currency: USD
+  billing_period: monthly
+  self_serve: false
+  description: Custom solutions for large-scale operations with SLA guarantees and
+    priority support.
+  ideal_for: Enterprise with 50K+ monthly shipments
+  included:
+  - Everything in Managed Services
+  - Custom SLA agreements
+  - Priority 24/7 support
+  - Custom integrations
+  - Dedicated operations team
+- name: White-Label 4PL
+  price: null
+  price_display: Revenue share from 5% or wholesale rates
+  currency: USD
+  billing_period: revenue-share
+  self_serve: false
+  description: Offer cross-border logistics under the customer's own brand with Janio
+    infrastructure behind the scenes.
+  ideal_for: Logistics providers expanding services
+  included:
+  - Fully branded customer experience
+  - Your rates, your margins
+  - API integration
+  - Partner portal access
+  - Revenue sharing model
+pricing_factors:
+- Shipment volume
+- Destination corridor / cross-border complexity
+- Service level (express, standard, economy)
+- Additional services (invoice audit, procurement support, control tower)
+fees:
+  setup_fee: 'None for standard integrations; a one-time implementation fee may apply
+    to custom enterprise integrations.'
+  minimum_commitment: 'None — Platform Access is month-to-month.'
