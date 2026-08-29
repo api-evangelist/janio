@@ -11,6 +11,17 @@ description: 'Janio is a Singapore-headquartered fourth-party logistics (4PL) pr
   pre-built Shopify, WooCommerce and Magento connectors — but the API reference itself
   is released only on request through the sales contact form, so no machine-readable
   contract is publicly available.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.janio.asia/brand/janio-icon.png
 url: https://raw.githubusercontent.com/api-evangelist/janio/refs/heads/main/apis.yml
 x-type: company
