@@ -1,0 +1,14 @@
+{
+  "repo": "janio",
+  "feeds": [
+    {
+      "source": "https://support.janio.asia/en/support/home",
+      "feed_url": "https://support.janio.asia/en/support/home",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-30T22:33:40Z"
+}
