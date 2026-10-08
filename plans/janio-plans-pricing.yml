@@ -79,3 +79,35 @@ fees:
   setup_fee: 'None for standard integrations; a one-time implementation fee may apply
     to custom enterprise integrations.'
   minimum_commitment: 'None — Platform Access is month-to-month.'
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  - subscription
+  units: []
+  plans:
+  - name: Platform Access
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Managed Services
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Enterprise Partnership
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
+  - name: White-Label 4PL
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
