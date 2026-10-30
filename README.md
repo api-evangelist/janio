@@ -64,73 +64,100 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Janio is a Singapore-headquartered **fourth-party logistics (4PL)** provider serving Southeast Asia
-and Greater China. It does not own trucks or warehouses — it orchestrates a network of 500+ vetted
-carriers and 3PLs on a customer's behalf under one contract, one invoice and one SLA, across land,
-air and ocean freight plus warehousing.
+Janio is a Singapore-headquartered fourth-party logistics (4PL) provider serving Southeast Asia and Greater China. Rather than owning trucks or warehouses, Janio orchestrates a network of 500+ vetted carriers and 3PLs on a customer's behalf under one contract, one invoice and one SLA, across land, air and ocean freight plus warehousing. Its platform covers multi-carrier allocation, logistics-as-a-service, strategic procurement, a supply-chain control tower and automated freight invoice audit. Janio publishes a production REST API at api.janio.asia for order creation, tracking, rating, label generation, inventory sync and webhook events, together with pre-built Shopify, WooCommerce and Magento connectors — but the API reference itself is released only on request through the sales contact form, so no machine-readable contract is publicly available.
 
-- Website: https://www.janio.asia/
-- Integrations & API: https://www.janio.asia/integrations
-- Support: https://support.janio.asia/en/support/home
-- Customer portal (login): https://app.janio.asia/
+**Areas:** Logistics · Supply Chain · Shipping · Fourth-Party Logistics · Cross-border eCommerce · Freight · Tracking · Southeast Asia · Singapore · Company
 
-## What this profile found (2026-08-23)
+## Janio on APIs.io
 
-**The API is real and live, but its contract is not published.**
+Everything profiled for Janio is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/janio/](https://apis.io/providers/janio/)** — or go straight to one of the APIs or properties below.
 
-- `https://api.janio.asia` is a production Django REST Framework host. Anonymous probes returned
-  `403 {"detail":"Permission denied."}` on `/api/order/orders/` and `/api/order/order/create/`, and a
-  plain `404` elsewhere — a live, credential-gated API, not a parked host.
-- No machine-readable contract exists at any probed location. `/openapi.json`, `/openapi.yaml`,
-  `/swagger.json`, `/v1/openapi.json`, `/api-docs`, `/docs`, `/redoc`, `/api/schema`, `/graphql`,
-  `?wsdl` and the DRF schema paths all 404 on the API host; the docs host, the portal host and the
-  marketing host miss the same way. No AsyncAPI, no GraphQL SDL, no `.proto`, no WSDL.
-- The route to the reference is a sales form. The Integrations page's only call to action is
-  **"Request API Documentation"**, which leads to `/contact`. Janio's own copy says
-  *"API documentation is available upon request."*
-- No MCP server, no A2A agent card, no `/.well-known` document on any host.
-- **Janio does publish a real `llms.txt`** at https://www.janio.asia/llms.txt — saved verbatim to
-  `llms/janio-llms.txt`. It is a well-formed, genuinely useful document, and it is currently the
-  single best machine-readable thing Janio ships.
+### APIs (1)
 
-**Notable gaps between what the site claims and what is publicly obtainable:**
+- [Janio Logistics API](https://apis.io/apis/janio/janio-logistics-api/) — Janio's production REST API for cross-border logistics: order creation and batch order management, unified multi-carrier tracking, rate and transit-time…
 
-| Claimed on janio.asia | Publicly obtainable |
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Janio Domain Security](https://apis.io/security/janio/janio-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Janio Plans Pricing](https://apis.io/plans/janio/janio-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Janio Rate Limits](https://apis.io/rate-limits/janio/janio-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.janio.asia/)
+- [Pricing](https://www.janio.asia/pricing)
+- [Support](https://support.janio.asia/en/support/home)
+- [Blog](https://www.janio.asia/resources/articles)
+- [Terms of service](https://www.janio.asia/terms)
+- [Privacy policy](https://www.janio.asia/privacy)
+
+## API Evangelist rating
+
+**Kin Score 27.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| "We provide SDKs for popular languages" | No first-party SDK in npm, PyPI, RubyGems, Packagist, crates.io, NuGet, Maven Central or pkg.go.dev |
-| "Sandbox testing environment" | No sandbox host, test credential or test identifier published |
-| Webhooks for status/delivery/exception events | No event catalog, payload schema, signing scheme or retry policy published |
-| "99.9% uptime SLA" | No status page (`status.janio.asia` does not resolve), no SLA document |
-| SOC 2 Type II and ISO 27001 | Janio itself states audits are *in progress*, not complete |
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 77.6 |
 
-Two first-party platform connectors do exist and are recorded in `packages/`: the
-[Shopify app](https://apps.shopify.com/janio-asia) and the
-[WooCommerce plugin](https://wordpress.org/plugins/janio-store-connector/) — the latter still at
-`1.0.0`, last published **2023-03-24**, tested only to WordPress 6.2. Both Janio GitHub
-organizations (`janioasia`, `Janio-Asia`) exist and are empty (0 public repos).
+**Agent readiness 2.5** — human-only
 
-## Artifacts in this repository
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-| Path | Type | Method |
-|---|---|---|
-| `llms/janio-llms.txt` | LLMsTxt | searched (verbatim) |
-| `plans/janio-plans-pricing.yml` | Plans | searched |
-| `rate-limits/janio-rate-limits.yml` | RateLimits | searched (`limit_count: 0`) |
-| `conformance/janio-conformance.yml` | Conformance + Compliance | searched |
-| `lifecycle/janio-lifecycle.yml` | Lifecycle | searched |
-| `conventions/janio-conventions.yml` | Conventions | probed |
-| `packages/janio-packages.yml` | Packages | searched |
-| `security/janio-domain-security.yml` | DomainSecurity | probed |
-| `well-known/janio-well-known.yml` | (absence record — no pointer) | probed |
+**Regulatory alignment 23.5** — Horizontal (data, software, accessibility, platform)
 
-No `Idempotency`, `SDKs`, `Sandbox`, `Webhooks`, `StatusPage`, `Deprecation`, `Security`,
-`MCPServer`, `AgentCard`, `AgentSkill` or `WellKnown` pointer is emitted, because in every one of
-those cases the probe recorded an absence. The artifacts document the absence; the pointers would
-have asserted a presence.
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/janio/](https://apis.io/providers/janio/).
 
-## For Janio
+## How this profile is made
 
-Publishing the OpenAPI you already hand out on request — at a stable URL, alongside the webhook
-event catalog and the sandbox details you already advertise — would move nearly every measurement
-above at once, and would make the API reachable by the agents your customers are starting to build.
-Open an issue here or email info@apievangelist.com and we will re-score.
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Janio: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/janio/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
